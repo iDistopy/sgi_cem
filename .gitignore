@@ -1,0 +1,5 @@
+./media
+./sgi_cem/__pycache__
+./website/__pycache__
+/website/migrations
+.db.sqlite3

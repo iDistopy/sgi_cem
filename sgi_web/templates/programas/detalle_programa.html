@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Programa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Programas de Intercambio</a>
+        </div>
+    </nav>
+
+    <!-- Detalles del Programa -->
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">{{ programa.nombre }}</h2>
+                <p class="card-text"><strong>Descripción:</strong> {{ programa.descripcion }}</p>
+                <p class="card-text"><strong>Carrera:</strong> {{ programa.carrera }}</p>
+                <p class="card-text"><strong>País:</strong> {{ programa.pais }}</p>
+                <p class="card-text"><strong>Ciudad:</strong> {{ programa.ciudad }}</p>
+                <p class="card-text"><strong>Fecha de creación:</strong> {{ programa.fecha_creacion|date:"d/m/Y" }}</p>
+                <a href="{% url 'programa/alumno' %}" class="btn btn-secondary">Volver a la lista de programas</a>
+            </div>
+        </div>
+
+        <!-- Formulario de Postulación -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h3>Postular al Programa</h3>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="form-group mb-3">
+                        <label for="nombres">Nombres</label>
+                        <input type="text" class="form-control" id="nombres" name="nombre" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="apellido_paterno">Apellido Paterno</label>
+                        <input type="text" class="form-control" id="apellido_paterno" name="apellido_paterno" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="apellido_materno">Apellido Materno</label>
+                        <input type="text" class="form-control" id="apellido_materno" name="apellido_materno" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="correo">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="correo" name="correo" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="telefono">Número Telefónico</label>
+                        <input type="text" class="form-control" id="telefono" name="telefono" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Enviar Postulación</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
