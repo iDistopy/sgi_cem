@@ -17,6 +17,7 @@ urlpatterns = [
     path('perfil/', views.perfil_alumno, name='perfil_alumno'),
     path('registro/', views.register, name='register'),
     path('logout/', views.logout, name='logout'),
+    path('calificaciones/', views.consultar_calificaciones, name='consultar'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

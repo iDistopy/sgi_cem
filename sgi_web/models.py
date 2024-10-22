@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Alumno(models.Model):
     user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
@@ -63,3 +63,12 @@ class Documento(models.Model):
 
     def __str__(self):
         return f'Documento {self.id} de {self.alumno.user.username}'
+
+class Calificacion(models.Model):
+    alumno = models.ForeignKey(User, on_delete=models.CASCADE)
+    asignatura = models.CharField(max_length=255)
+    calificacion = models.DecimalField(max_digits=4, decimal_places=2)
+    fecha = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.alumno.username} - {self.asignatura}'

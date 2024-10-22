@@ -1,5 +1,47 @@
-./media
-./sgi_cem/__pycache__
-./website/__pycache__
-/website/migrations
+# Ignorar archivos byte-compiled / optimizados / DLL de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignorar entornos virtuales
+venv/
+env/
+.venv/
+.env/
+.Python
+
+# Ignorar carpetas media y scripts
+/media/
+/scripts/
+
+# Ignorar caches de Python específicos del proyecto
+/sgi_cem/__pycache__/
+/website/__pycache__/
+
+# Ignorar migraciones de Django (excepto __init__.py)
+website/migrations/
+!website/migrations/__init__.py
+
+# Ignorar archivos de base de datos SQLite
+*.sqlite3
 .db.sqlite3
+
+# Ignorar archivos estáticos generados por Django
+staticfiles/
+static/
+
+# Ignorar configuraciones locales y archivos de entorno
+.env
+*.env
+
+# Ignorar archivos específicos del sistema operativo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Ignorar configuraciones específicas de IDEs o editores
+.vscode/
+.idea/
+
+# Ignorar backups o exportaciones de base de datos
+*.sql

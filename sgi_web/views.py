@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.hashers import make_password
 from django.contrib import messages
-from .models import Programa, Postulacion, Alumno, Documento
+from .models import Programa, Postulacion, Alumno, Documento, Calificacion
 
 
 def inicio(request):
@@ -269,3 +269,17 @@ def logout(request):
     auth_logout(request)
     messages.success(request, 'Has cerrado sesión correctamente.')
     return redirect('index')
+
+def consultar_calificaciones(request):
+    calificaciones = Calificacion.objects.all()
+
+    # Filtrar por nombre del alumno o asignatura
+    query = request.GET.get('q')
+    if query:
+        calificaciones = calificaciones.filter(
+            Q(alumno__username__icontains=query) | Q(asignatura__icontains=query)
+        )
+
+    return render(request, 'calificaciones/consultar.html', {
+        'calificaciones': calificaciones
+    })
