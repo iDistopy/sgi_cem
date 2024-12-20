@@ -23,3 +23,6 @@ Añadir "Groups":
 - Administrador
 - Personal CEM
 - Personal CEL
+
+Nota de uso:
+Si se quiere colocar a un usuario como "administrador", para poder crear cursos, eliminar, aprobar / desaprobar solicitudes, se tiene que desde http://127.0.0.1:8000/admin colocar el grupo "Administrador" al usuario superuser.
