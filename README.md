@@ -11,3 +11,15 @@ Activar base de datos:
 
 Correr servidor:
 - py manage.py runserver
+
+Ajustar configuración:
+- py manage.py createsuperuser
+- Colocar los datos
+- Acceder a http://127.0.0.1:8000/admin y iniciar sesión
+
+Añadir "Groups":
+- Alumno
+- Familiar
+- Administrador
+- Personal CEM
+- Personal CEL
